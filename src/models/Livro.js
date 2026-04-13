@@ -1,16 +1,14 @@
-//Modelo é um objeto que representa uma coleção na base de dados
+// Modelo é um objeto que representa uma coleção na base de dados
 
 import mongoose from "mongoose";
 
-//função para definir um modelo a ser seguido
+// função para definir um modelo a ser seguido
 const livroSchema = new mongoose.Schema({
-    id: { type: mongoose.Schema.Types.ObjectId },
-    titulo: { type: String, required: true},
+    titulo: { type: String, required: true },
     editora: { type: String },
     preco: { type: Number },
     paginas: { type: Number },
-}, { 
-    
+}, {
     versionKey: false,
     collection: 'livros'
 });

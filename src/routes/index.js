@@ -1,10 +1,10 @@
 import express from "express";
-import livro from "../models/Livro.js";
+import livrosRoutes from "./livrosRoutes.js";
 
 const routes = (app) =>{
     app.route("/").get((req, res) => res.status(200).send("Teste de rota padrão"));
 
-    app.use(express.json(), livro);
+    app.use(express.json(), livrosRoutes);
 };
 
 export default routes
