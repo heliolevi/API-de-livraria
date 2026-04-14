@@ -27,6 +27,21 @@ class LivroController {
         }
     };
 
+    static async listarLivrosPorEditora(req, res) {
+        try {
+            const editora = req.params.editora;
+            const livrosEncontrados = await livro.find({ editora: editora });
+
+            if (livrosEncontrados.length === 0) {
+                return res.status(404).json({ message: "Nenhum livro encontrado para esta editora" });
+            }
+
+            res.status(200).json(livrosEncontrados);
+        } catch (erro) {
+            res.status(500).json({ message: `${erro.message} - Falha na busca de livros por editora!` });
+        }
+    };
+
     static async cadastrarLivro(req, res) {
         const novoLivro = req.body;
         try {
